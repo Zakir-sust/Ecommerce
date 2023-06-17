@@ -50,7 +50,7 @@ export default function SignIn() {
         navigate('/home');
       })
       .catch(res=>{
-        console.log('wrong username or password')
+        console.log('wrong username or password', res)
         return
       })
   };

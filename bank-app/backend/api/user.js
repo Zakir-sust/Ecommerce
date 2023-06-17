@@ -84,8 +84,11 @@ router.route('/login').post(async(req, res) => {
     try {
         const userr = await User.findByCredentials(req.body.user, req.body.password)
         const token = await userr.generateAuthToken()
+        console.log("userr = ",userr);
+        console.log("token",token);
         res.status(200).send({ userr, token })
     } catch (e) {
+        console.log("login error at api")
         res.status(400).json(e)
     }
 })
